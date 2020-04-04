@@ -115,12 +115,22 @@
       });
       console.table(sortLived);
 
-      sortLived.forEach((sort) => {
-        console.log("Each person lived : " + (sort.passed - sort.year));
+      sortLived.forEach((inventor) => {
+        console.log("Each person lived : " + (inventor.passed - inventor.year));
       });
 
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+      const category = document.querySelector(".mw-category");
+      // will convert into an array from Node List - Option 1
+      const links = Array.from(category.querySelectorAll("a"));
+      //  option 2 -  use spread to spread everything into array
+      // const links = [...caregory.querySelectorAll("a")];
+      // will map over each link and return the text which is inside and after filter for de
+      const de = links
+        .map((link) => link.textContent)
+        .filter((streetName) => streetName.includes("de"));
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
