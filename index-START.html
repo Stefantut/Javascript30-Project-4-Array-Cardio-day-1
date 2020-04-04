@@ -70,7 +70,7 @@
         "Blair, Tony",
         "Blake, William",
       ];
-
+      console.log("%cExercise 1: ", "background: #222; color: #bada55");
       // Array.prototype.filter()
       // 1. Filter the list of inventors for those who were born in the 1500's
       const born = inventors.filter(
@@ -78,11 +78,13 @@
       );
       console.log("borin in 1500 : " + born);
 
+      console.log("%cExercise 2: ", "background: #222; color: #bada55");
       // Array.prototype.map()
       // 2. Give us an array of the inventors first and last names
       const names = inventors.map((name) => name.first + " " + name.last);
       console.log("full names: " + names);
 
+      console.log("%cExercise 3: ", "background: #222; color: #bada55");
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
       // const inventorsSorted = inventors.sort(function (a, b) {
@@ -94,11 +96,13 @@
       //   }
       // });
 
+      // Use ternary operator
       const inventorsSorted = inventors.sort((a, b) =>
         a.year > b.year ? 1 : -1
       );
       console.table(inventorsSorted);
 
+      console.log("%cExercise 4: ", "background: #222; color: #bada55");
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
 
@@ -107,6 +111,7 @@
       }, 0);
       console.log("all inventors lived together " + lived + " " + "years");
 
+      console.log("%cExercise 5: ", "background: #222; color: #bada55");
       // 5. Sort the inventors by years lived
       const sortLived = inventors.sort(function (a, b) {
         const last = a.passed - a.year;
@@ -119,22 +124,31 @@
         console.log("Each person lived : " + (inventor.passed - inventor.year));
       });
 
+      console.log("%cExercise 6: ", "background: #222; color: #bada55");
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
       const category = document.querySelector(".mw-category");
-      // will convert into an array from Node List - Option 1
-      const links = Array.from(category.querySelectorAll("a"));
-      //  option 2 -  use spread to spread everything into array
-      // const links = [...caregory.querySelectorAll("a")];
-      // will map over each link and return the text which is inside and after filter for de
-      const de = links
-        .map((link) => link.textContent)
-        .filter((streetName) => streetName.includes("de"));
+      // Added this check because isn't connected to wikipedia
+      if (category == null) {
+        console.log("can't connect to wikipedia");
+      } else {
+        // will convert into an array from Node List - Option 1
+        const links = Array.from(category.querySelectorAll("a"));
+        //  option 2 -  use spread to spread everything into array
+        // const links = [...caregory.querySelectorAll("a")];
+        // will map over each link and return the text which is inside and after filter for de
+        const de = links
+          .map((link) => link.textContent)
+          .filter((streetName) => streetName.includes("de"));
+      }
 
+      console.log("%cExercise 7: ", "background: #222; color: #bada55");
       // 7. sort Exercise
       // Sort the people alphabetically by last name
+      const peopleSorted = people.sort(function (a, b) {});
 
+      console.log("%cExercise 8: ", "background: #222; color: #bada55");
       // 8. Reduce Exercise
       // Sum up the instances of each of these
       const data = [
