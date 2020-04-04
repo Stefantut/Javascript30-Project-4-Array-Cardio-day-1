@@ -146,7 +146,13 @@
       console.log("%cExercise 7: ", "background: #222; color: #bada55");
       // 7. sort Exercise
       // Sort the people alphabetically by last name
-      const peopleSorted = people.sort(function (a, b) {});
+      const peopleSorted = people.sort((lastOne, nextOne) => {
+        // destructure and return the last name first
+        const [aLast, aFirst] = lastOne.split(", ");
+        const [bLast, bFirst] = nextOne.split(", ");
+        return aLast > bLast ? 1 : -1;
+      });
+      console.log(peopleSorted);
 
       console.log("%cExercise 8: ", "background: #222; color: #bada55");
       // 8. Reduce Exercise
@@ -167,6 +173,16 @@
         "car",
         "truck",
       ];
+      const transportation = data.reduce(function (obj, item) {
+        if (!obj[item]) {
+          //set the initial one to 0
+          obj[item] = 0;
+        }
+        // increment the object
+        obj[item]++;
+        return obj;
+      }, {});
+      console.log(transportation);
     </script>
   </body>
 </html>
